@@ -22,9 +22,12 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::prefix('user')->group(function () {
+    Route::get('', [UserController::class, 'getUsuarios']);
     Route::post('login', [UserController::class, 'log']);
     Route::post('register', [UserController::class, 'register']);
     Route::put('{id}', [UserController::class, 'update']);
+    Route::post('restore_password', [UserController::class, 'RestorePassword']);
+    Route::delete('{id}', [UserController::class, 'delete']);
 });
 
 Route::prefix('paciente')->group(function () {
